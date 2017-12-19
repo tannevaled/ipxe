@@ -1,14 +1,21 @@
-sudo: required
+sudo: false
 
-language: generic
+language: c
+
+compiler:
+  - gcc
+
+cache: ccache
 
 env:
   global:
+  - MAKEFLAGS="-j 4"
   - src_lldp_c='src/net/lldp.c'
   - src_lldp_h='src/include/ipxe/lldp.h'
   - bios_binary_dir='bin'
   - bios_binary_file='undionly.kkpxe'
   - binary="${bios_binary_dir}/${bios_binary_file}"
+ 
 script:
   - git clone https://git.ipxe.org/ipxe.git
   - mv $src_lldp_c ipxe/$src_lldp_c
