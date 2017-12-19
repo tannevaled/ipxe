@@ -25,11 +25,12 @@ env:
   - bios_binary_dir='bin'
   - bios_binary_file='undionly.kkpxe'
   - binary="${bios_binary_dir}/${bios_binary_file}"
-  - chain_script='contrib/scripts/lldp.ipxe'
+  - chain_script='lldp.ipxe'
 script:
   - git clone https://git.ipxe.org/ipxe.git
-  - mv $src_lldp_c ipxe/$src_lldp_c
-  - mv $src_lldp_h ipxe/$src_lldp_h
+  - cp $src_lldp_c ipxe/$src_lldp_c
+  - cp $src_lldp_h ipxe/$src_lldp_h
+  - cp contrib/scripts/$chain_script ipxe/src/$chain_script
   - sh patch.sh
   - pwd
   - cd ipxe/src && make $binary EMBED=$chain_script
