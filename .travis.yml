@@ -2,10 +2,16 @@ sudo: required
 
 language: generic
 
+env:
+  - src_lldp_c='src/net/lldp.c'
+  - src_lldp_h='src/include/ipxe/lldp.h'
+  - bios_binary_dir='bin'
+  - bios_binary_file='undionly.kkpxe'
+  - binary="${bios_binary_dir}/${bios_binary_file}"
 script:
   - git clone https://git.ipxe.org/ipxe.git
-  - mv src/net/lldp.c ipxe/src/net/lldp.c
-  - mv src/include/ipxe/lldp.h ipxe/src/include/ipxe/lldp.h
+  - mv $src_lldp_c ipxe/$src_lldp_c
+  - mv $src_lldp_h ipxe/$src_lldp_h
   - ls -alFh
   - pwd
-  - cd ipxe && make
+  - cd ipxe/src && make $binary
