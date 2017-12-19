@@ -44,7 +44,7 @@ deploy:
   provider: releases
   api_key:
     secure: XaJC+0d2zSbdBueA+CrJWhK6KlAuAXfpzniulJ7G2dcsVn+FaKbPTmocfw1N6WsKTAB+WIIQjpoNHtD+P1gQNBjrLPPV8BPAAICqTXV1csZfnzOd+xH36GzCt5IPsJvBuZq6NcPtTUYalXYIWYKvJ27ddjWgsGpYzRWvKfwf1JzvB0QBZzGfhr7uTRKwuhgMde3DLD1n3AZAj2AhmE4//USwKXLaFkN81hR08Fi7MAWZaKNQOL9hb81aphIoXyYSkuTbHEH0fUu63kuZzyhzrMGMooLBNCsw9nH8z143czSqcyr8PsHMd3/NGsPNOI5XUlBwO5GuT3luQmO0cvo0sQQFe4TTqH6ZvwAxWF/9u5wpomKXJHVXompvmber4fDLn35YfCHo8GYq8cNZdgtW6ag4G/tWziIaIcSI42aSlQpyM+8Fg4SbTCMojBz0rfFucCSrR/ZsXdSAPX/1UUuHhSRJKPZz8WY1H60xLjETe7gexw/O4DeG7ciKeyQwA8yaT1aQK1+1ahl2qq/hzFFfIVdUSbyBUZaGrtVrVNL5susk+/1vZlvtVpL2IopKUPgpqX1jbJv+jYZ3eCAqgc9lfRFZH/eRuwp3Fe7u8Fz8jnKP0wEo/KyXc0S6XpU+Jt5hXP+ReBvGaXVfmsb5oVk1K6cHsaZ+19Q6BBCnLxc7p/c=
-  file: ipxe/src/$binary
+  file: $binary
   on:
     repo: tannevaled/ipxe
   skip_cleanup: true
