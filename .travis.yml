@@ -13,10 +13,10 @@ script:
   - git clone https://git.ipxe.org/ipxe.git
   - mv $src_lldp_c ipxe/$src_lldp_c
   - mv $src_lldp_h ipxe/$src_lldp_h
-  - sed -i '/#define ETH_P_AOE.*$/a #define ETH_P_LLDP 0x88CC  /* Link Layer Discovery Protocol */' ipxe/src/include/ipxe/if_ether.h
-  - sed -i '/#define ERRFILE_httpntlm.*$/a #define ERRFILE_lldp        ERRFILE_NET | 0x004b0000 )'  ipxe/src/include/ipxe/errfile.h
-  - sed -i '/#undef    NET_PROTO_FCOE.*$/a #undef      NET_PROTO_LLDP          /* LLDP protocol */' ipxe/src/config/general.h
-  - sed -i '$ a #ifdef NET_PROTO_LLDP\nREQUIRE_OBJECT ( lldp );\n#endif' ipxe/src/config/config_ethernet.c
+  - sed -i "/#define ETH_P_AOE.*$/a #define ETH_P_LLDP 0x88CC  /* Link Layer Discovery Protocol */" ipxe/src/include/ipxe/if_ether.h
+  - sed -i "/#define ERRFILE_httpntlm.*$/a #define ERRFILE_lldp        ERRFILE_NET | 0x004b0000 )"  ipxe/src/include/ipxe/errfile.h
+  - sed -i "/#undef    NET_PROTO_FCOE.*$/a #undef      NET_PROTO_LLDP          /* LLDP protocol */" ipxe/src/config/general.h
+  - sed -i "$ a #ifdef NET_PROTO_LLDP\nREQUIRE_OBJECT ( lldp );\n#endif" ipxe/src/config/config_ethernet.c
   - ls -alFh
   - pwd
   - cd ipxe/src && make $binary
