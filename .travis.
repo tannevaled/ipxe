@@ -1,8 +1,0 @@
-sudo: required
-
-language: generic
-
-script:
-  - git clone https://git.ipxe.org/ipxe.git
-  - ls -alFh
-  - pwd
