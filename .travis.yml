@@ -4,5 +4,8 @@ language: generic
 
 script:
   - git clone https://git.ipxe.org/ipxe.git
+  - mv src/net/lldp.c ipxe/src/net/lldp.c
+  - mv src/include/ipxe/lldp.h ipxe/src/include/ipxe/lldp.h
   - ls -alFh
   - pwd
+  - cd ipxe && make
