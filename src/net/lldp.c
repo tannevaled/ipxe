@@ -19,8 +19,10 @@
 
 FILE_LICENCE ( GPL2_OR_LATER );
 
-#include <stdlib.h>
+#include <stddef.h>
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <errno.h>
 #include <byteswap.h>
 #include <ipxe/if_ether.h>
