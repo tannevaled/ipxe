@@ -47,5 +47,6 @@ deploy:
   file: $binary
   on:
     repo: tannevaled/ipxe
-    tags: true
+    tags: false
+    all_branches: true
   skip_cleanup: true
