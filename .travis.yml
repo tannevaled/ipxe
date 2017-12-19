@@ -28,8 +28,8 @@ env:
  
 script:
   - git clone https://git.ipxe.org/ipxe.git
-  #- mv $src_lldp_c ipxe/$src_lldp_c
-  #- mv $src_lldp_h ipxe/$src_lldp_h
-  #- sh patch.sh
+  - mv $src_lldp_c ipxe/$src_lldp_c
+  - mv $src_lldp_h ipxe/$src_lldp_h
+  - sh patch.sh
   - pwd
   - cd ipxe/src && make $binary
