@@ -3,6 +3,7 @@ sudo: required
 language: generic
 
 env:
+  global:
   - src_lldp_c='src/net/lldp.c'
   - src_lldp_h='src/include/ipxe/lldp.h'
   - bios_binary_dir='bin'
