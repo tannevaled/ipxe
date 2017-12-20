@@ -74,4 +74,4 @@ static int lldp_exec ( int argc, char **argv ) {
 struct command lldp_command __command = {
         .name = "lldp",
         .exec = lldp_exec,
-}
+};
