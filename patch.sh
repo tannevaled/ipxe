@@ -16,7 +16,7 @@ sed -i '/#define DHCP_EB_FEATURE_NFS/a \
 #define DHCP_EB_FEATURE_LLDP 0x30 /**< LLDP protocol */'              ipxe/src/include/ipxe/features.h
 cat ipxe/src/include/ipxe/features.h
 
-echo "#define NET_PROTO_LLDP        /* LLDP protocol */'"   >> ipxe/src/config/local/general.h
+echo "#define NET_PROTO_LLDP        /* LLDP protocol */"    >> ipxe/src/config/local/general.h
 echo "#define LLDP_CMD              /* LLDP commands */"    >> ipxe/src/config/local/general.h
 echo "#define VLAN_CMD              /* VLAN commands */"    >> ipxe/src/config/local/general.h
 echo "#define PING_CMD              /* Ping command */"     >> ipxe/src/config/local/general.h
