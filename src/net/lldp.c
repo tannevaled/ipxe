@@ -355,6 +355,7 @@ static int lldp_rx ( struct io_buffer *iobuf, struct net_device *netdev,
 
 	ref_put ( &lldp_settings->refcnt );
 
+  DBGC ( lldp_settings, "lldp_rx");
 done:
 	free_iob ( iobuf );
 	return rc;
