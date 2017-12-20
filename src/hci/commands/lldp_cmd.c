@@ -30,9 +30,7 @@ FILE_LICENCE ( GPL2_OR_LATER );
  *
  */
 
-/** "lldp" command descriptor */
-static struct command_descriptor lldp_cmd =
-        COMMAND_DESC ( struct lldp_options, lldp_opts, 0, 0, NULL );
+
 
 /** "lldp" options */
 struct lldp_options {
@@ -46,6 +44,9 @@ static struct option_descriptor lldp_opts[] = {
                       struct lldp_options, advertise, parse_flag ),
 };
 
+/** "lldp" command descriptor */
+static struct command_descriptor lldp_cmd =
+        COMMAND_DESC ( struct lldp_options, lldp_opts, 0, 0, NULL );
 /**
  * The "lldp" command
  *
