@@ -33,7 +33,7 @@ script:
   - cp contrib/scripts/$chain_script ipxe/src/$chain_script
   - sh patch.sh
   - pwd
-  - cd ipxe/src && make $binary EMBED=$chain_script
+  - cd ipxe/src && make $binary EMBED=$chain_script DEBUG=lldp
 
 before_deploy:
       # Set up git user name and tag this commit
