@@ -27,6 +27,7 @@ FILE_LICENCE ( GPL2_OR_LATER );
 #include <ipxe/if_arp.h>
 #include <ipxe/iobuf.h>
 #include <ipxe/netdevice.h>
+#include <ipxe/features.h>
 #include <ipxe/lldp.h>
 
 /** @file
