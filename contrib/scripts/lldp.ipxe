@@ -16,12 +16,13 @@ set count:int32 0
 iseq ${${intf}.lldp/lldpsource} ${src} || goto mgmtaddr
 sleep 1
 inc count
+echo ${count}
 iseq ${count} ${timeout} || goto retry_poll_lldp
 clear count
 
 # You may handle timeout here
 echo -- Timed out waiting for an LLDP packet
-exit 1
+shell
 
 :mgmtaddr
 echo -- Got an LLDP packet from ${${intf}.lldp/lldpsource}
