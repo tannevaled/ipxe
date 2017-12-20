@@ -26,6 +26,13 @@ exit 1
 :mgmtaddr
 echo -- Got an LLDP packet from ${${intf}.lldp/lldpsource}
 echo --
+
+echo ${${intf}.lldp/chassisid:string}
+echo ${${intf}.lldp/portid:string}
+echo ${${intf}.lldp/portdesc:string}
+echo ${${intf}.lldp/systemname:string}
+echo ${${intf}.lldp/systemdesc:string}
+
 echo -- -- Start of Management addresses list --
 
 set count:int32 -1

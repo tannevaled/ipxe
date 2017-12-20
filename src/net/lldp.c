@@ -319,8 +319,6 @@ static int lldp_rx ( struct io_buffer *iobuf, struct net_device *netdev,
 	uint16_t *tlv_header;
 	int rc = 0;
 
-  printf("lldp_rx!");
-
 	lldp_settings = zalloc ( sizeof ( struct lldp_settings ) +
 	                         2 * ( 2 + ll_protocol->ll_addr_len ) +
 	                         iob_len ( iobuf ) );
@@ -358,7 +356,8 @@ static int lldp_rx ( struct io_buffer *iobuf, struct net_device *netdev,
 
 	ref_put ( &lldp_settings->refcnt );
 
-  DBGC ( lldp_settings, "lldp_rx");
+  DBGC ( lldp_settings, "Got an LLDP packet from %010x\n"
+         ll_source );
 done:
 	free_iob ( iobuf );
 	return rc;
