@@ -1,0 +1,50 @@
+#!ipxe
+
+echo -- Entering undionly.kkpxe iPXE script --
+set  user-class pxe-loaded-ipxe
+echo user-class=${user-class}
+ifopen net0
+route
+
+set ipxe_boot_nextstep ${224:string}
+echo ipxe_boot_nextstep=${ipxe_boot_nextstep}
+
+iseq ${ipxe_boot_nextstep} disk         && goto disk         ||
+iseq ${ipxe_boot_nextstep} nextstep_uri && goto nextstep_uri ||
+iseq ${ipxe_boot_nextstep} shell        && goto shell        ||
+goto help
+
+:disk
+sanboot --no-describe --drive 0x80
+
+:nextstep_uri
+set ipxe_boot_vlan         ${225:string}
+set ipxe_boot_nextstep_uri ${226:string}
+set ipxe_boot_timezone     ${227:uristring}
+set ipxe_boot_lang         ${228:uristring}
+set ipxe_boot_keyboard     ${229:uristring}
+
+set p_uuid         uuid=${uuid}
+set p_manufacturer manufacturer=${manufacturer:uristring}
+set p_product      product=${product:uristring}
+set p_serial       serial=${serial}
+set p_asset        asset=${asset:uristring}
+set p_mac          mac=${net0/mac:hexhyp}
+set p_vlan         vlan=${ipxe_boot_vlan}
+set p_timezone     os_timezone=${ipxe_boot_timezone}
+set p_lang         os_lang=${ipxe_boot_lang}
+set p_keyboard     os_keyboard=${ipxe_boot_keyboard}
+
+set params         ${p_uuid}&${p_manufacturer}&${p_product}&${p_serial}&${p_asset}&${p_mac}&${p_vlan}&${p_timezone}&${p_lang}&${p_keyboard}
+set nextstep_uri   ${ipxe_boot_nextstep_uri}?${params}
+
+echo ${nextstep_uri}
+echo Chaining to the next step
+boot ${nextstep_uri} || goto shell
+
+:shell
+shell
+
+:help
+echo Missing DHCP parameter n*224
+echo ipxe_boot_nextstep : { "disk", "nextstep_uri", "shell" }

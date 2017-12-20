@@ -19,10 +19,8 @@
 
 FILE_LICENCE ( GPL2_OR_LATER );
 
-#include <stddef.h>
-#include <string.h>
-#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <errno.h>
 #include <byteswap.h>
 #include <ipxe/if_ether.h>
@@ -38,6 +36,8 @@ FILE_LICENCE ( GPL2_OR_LATER );
  * This file implements the link layer discovery protocol as defined in
  * IEEE Std 802.1AB-2009.
  */
+
+FEATURE ( FEATURE_PROTOCOL, "LLDP", DHCP_EB_FEATURE_LLDP, 1 );
 
 struct net_protocol lldp_protocol __net_protocol;
 
