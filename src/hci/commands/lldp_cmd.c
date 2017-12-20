@@ -30,13 +30,11 @@ FILE_LICENCE ( GPL2_OR_LATER );
  *
  */
 
-
-
 /** "lldp" options */
 struct lldp_options {
   /** send advertisement */
   int advertise;
-}
+};
 
 /** "lldp" option list */
 static struct option_descriptor lldp_opts[] = {
@@ -47,16 +45,24 @@ static struct option_descriptor lldp_opts[] = {
 /** "lldp" command descriptor */
 static struct command_descriptor lldp_cmd =
         COMMAND_DESC ( struct lldp_options, lldp_opts, 0, 0, NULL );
+
 /**
  * The "lldp" command
  *
- * @v argc           Argument count
- * @v argv           Argument list
- * @ret rc           Return status code
+ * @v argc              Argument count
+ * @v argv              Argument list
+ * @ret rc              Return status code
  */
 static int lldp_exec ( int argc, char **argv ) {
         struct lldp_options opts;
-        const char
+        int rc;
+
+        /* Initialise options */
+        memset ( &opts, 0, sizeof ( opts ) );
+
+        /* Parse options */
+        if ( ( rc = reparse_options ( argc, argv, &lldp_cmd, &opts ) ) != 0 )
+        return rc;
         return 0;
 }
 
