@@ -61,7 +61,7 @@ FILE_LICENCE ( GPL2_OR_LATER_OR_UBDL );
 #undef	DOWNLOAD_PROTO_SLAM	/* Scalable Local Area Multicast */
 #undef	DOWNLOAD_PROTO_NFS	/* Network File System Protocol */
 //#undef DOWNLOAD_PROTO_FILE	/* Local filesystem access */
-
+#define DOWNLOAD_PROTO_OCI  /* OCI Protocol */
 /*
  * SAN boot protocols
  *
